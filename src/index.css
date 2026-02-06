@@ -16,6 +16,7 @@ body {
 body {
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
+	padding: 1rem;
 }
 img,
 picture,
@@ -30,4 +31,17 @@ button,
 textarea,
 select {
 	font: inherit;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+body {
+	background-image: url('/public/pratix_bg.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
