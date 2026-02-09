@@ -3,6 +3,7 @@
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	min-height: 50vh;
 
 	margin-top: 5rem;
 	display: flex;
@@ -23,10 +24,10 @@
 }
 #game-board ul {
 	display: grid;
-	height: 90%;
+	height: 80%;
 	width: 90%;
-	grid-template-columns: 200px 200px 200px 200px;
-	grid-template-rows: 1fr 1fr;
+	grid-template-columns: repeat(4, 200px);
+
 	gap: 20px;
 	padding: 2rem;
 	justify-content: center;
@@ -36,6 +37,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	aspect-ratio: 2 / 3;
 	padding: 1rem 0.5rem;
 	box-shadow: 1px -3px 14px 8px rgba(0, 0, 0, 0.5);
 	border-radius: 10px;

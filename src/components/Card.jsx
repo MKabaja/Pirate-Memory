@@ -1,29 +1,34 @@
-export default function Card({ card }) {
-	return (
-		<li className={`card ${chooseCardClass(card)}`}>
-			{card.type === 'letter' && (
-				<div>
-					<h3>{card.letter}</h3>
-				</div>
-			)}
+export default function Card({ card, onFlip }) {
+	const { type, isFlipped, letter, path, content } = card;
+	const cardStatus = isFlipped ? 'flipped' : 'covered';
+	const cardBack = '/cards/back-coin.png';
 
-			{card.type === 'picture' && (
-				<img
-					src={card.path}
-					alt={card.content}
-				/>
-			)}
+	return (
+		<li className='card-wrapper'>
+			<button
+				type='button'
+				className={`card ${cardStatus}`}
+				onClick={() => onFlip(card)}
+				aria-expanded={isFlipped}
+			>
+				<div className='card-face card-back'>
+					<img
+						src={cardBack}
+						alt='coin'
+					/>
+				</div>
+
+				<div className='card-face card-contnent'>
+					{type === 'letter' ? (
+						<h3>{letter}</h3>
+					) : (
+						<img
+							src={path}
+							alt={content}
+						/>
+					)}
+				</div>
+			</button>
 		</li>
 	);
-
-	function chooseCardClass(card) {
-		let cardClass = 'card_not-flipped';
-
-		if (card.isFlipped && card.type === 'picture')
-			cardClass = 'card_flipped';
-		if (card.isFlipped && card.type === 'letter')
-			cardClass = 'card_flipped-letter';
-
-		return cardClass;
-	}
 }
