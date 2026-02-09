@@ -1,10 +1,19 @@
 import './Gameboard.css';
+import Card from './Card';
 
-export default function Gameboard() {
+export default function Gameboard({ deck }) {
 	return (
 		<section id='game-board'>
 			<ul>
-				<li className='card card_flipped'>
+				{deck.map((item) => {
+					return (
+						<Card
+							key={item.id}
+							card={item}
+						/>
+					);
+				})}
+				{/* <li className='card card_flipped'>
 					<img
 						src='/cards/ship.png'
 						alt=''
@@ -25,7 +34,7 @@ export default function Gameboard() {
 					</div>
 				</li>
 				<li className='card card_not-flipped'></li>
-				<li className='card card_not-flipped'></li>
+				<li className='card card_not-flipped'></li> */}
 			</ul>
 		</section>
 	);
