@@ -1,0 +1,40 @@
+asne, przygotowałem dla Ciebie "ściągę" na jutro. Stylowanie efektu flip (odwracania) w CSS to trochę "magii", która opiera się na kilku kluczowych właściwościach.
+
+Oto lista rzeczy, na które musisz zwrócić uwagę, aby efekt 3D zadziałał poprawnie:
+
+1. Scena 3D (Perspektywa)
+Aby obrót wyglądał przestrzennie, a nie płasko (jak zgniatana kartka), musisz zdefiniować głębię.
+
+Gdzie: Na elemencie rodzicu, czyli li.card-wrapper.
+Właściwość: perspective: 1000px; (wartość możesz dostosować, im mniejsza, tym bardziej dramatyczny efekt 3D).
+2. Zachowanie przestrzeni (Preserve 3D)
+Musisz powiedzieć przeglądarce, że dzieci przycisku (czyli dwie strony karty) mają żyć we własnej przestrzeni 3D, a nie być spłaszczone do płaszczyzny przycisku.
+
+Gdzie: Na elemencie obracanym, czyli button.card.
+Właściwość: transform-style: preserve-3d;
+3. Nakładanie się stron (Position Absolute)
+Obie strony karty (awers i rewers) muszą znajdować się dokładnie w tym samym miejscu.
+
+Gdzie: Na klasie wspólnej .card-face.
+Właściwość: position: absolute;, top: 0;, left: 0;, width: 100%;, height: 100%;.
+Uwaga: Pamiętaj, że rodzic (button.card) musi mieć wtedy position: relative;.
+4. Ukrywanie "pleców" (Backface Visibility)
+To jest klucz do sukcesu. Dzięki temu, gdy obrócisz element o 180 stopni, staje się on niewidoczny (przezroczysty), odsłaniając to, co jest "pod nim" (czyli drugą stronę karty).
+
+Gdzie: Na klasie wspólnej .card-face.
+Właściwość: backface-visibility: hidden;
+5. Logika obrotu (Matematyka)
+Musisz ustawić strony tak, żeby były do siebie "plecami".
+
+Strona zakryta (moneta): Nie wymaga rotacji (0 stopni).
+Strona odkryta (treść): Musi być obrócona na start, żeby po odwróceniu karty stała się widoczna.
+transform: rotateY(180deg); (dla .card-contnent).
+Akcja (klasa .flipped): Gdy ta klasa jest na przycisku, obracasz cały przycisk.
+transform: rotateY(180deg);
+6. Resetowanie styli przycisku (<button>)
+Ponieważ zmieniliśmy div na button, przeglądarka doda swoje domyślne style (szare tło, ramkę, padding). Musisz je wyzerować.
+
+background: none;
+border: none;
+padding: 0;
+cursor: pointer;

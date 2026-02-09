@@ -52,7 +52,7 @@ export const pairsPool = [
 		pairId: 7,
 		letter: 'F',
 		word: 'Flaga',
-		imagePath: '/cards/flag.jpg',
+		imagePath: '/cards/flag.png',
 	},
 
 	// PAR 8
@@ -84,7 +84,7 @@ export const pairsPool = [
 		pairId: 11,
 		letter: 'B',
 		word: 'Beczka',
-		imagePath: '/cards/barrel.webp',
+		imagePath: '/cards/barrel.png',
 	},
 
 	// PAR 12
