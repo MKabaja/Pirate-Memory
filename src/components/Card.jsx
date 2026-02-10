@@ -1,5 +1,7 @@
-export default function Card({ card, onFlip }) {
-	const { type, isFlipped, letter, path, content } = card;
+import './Card.css';
+
+export default function Card({ card, onFlip, disabled }) {
+	const { type, isFlipped, path, content } = card;
 	const cardStatus = isFlipped ? 'flipped' : 'covered';
 	const cardBack = '/cards/back-coin.png';
 
@@ -10,6 +12,7 @@ export default function Card({ card, onFlip }) {
 				className={`card ${cardStatus}`}
 				onClick={() => onFlip(card)}
 				aria-expanded={isFlipped}
+				disabled={disabled}
 			>
 				<div className='card-face card-back'>
 					<img
@@ -18,9 +21,9 @@ export default function Card({ card, onFlip }) {
 					/>
 				</div>
 
-				<div className='card-face card-contnent'>
+				<div className='card-face card-content'>
 					{type === 'letter' ? (
-						<h3>{letter}</h3>
+						<h3>{content}</h3>
 					) : (
 						<img
 							src={path}

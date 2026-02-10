@@ -1,5 +1,5 @@
 #game-board {
-	background-image: url('/public/wooden.jpg');
+	background-image: url('/wooden.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -26,60 +26,9 @@
 	display: grid;
 	height: 80%;
 	width: 90%;
-	grid-template-columns: repeat(4, 200px);
+	grid-template-columns: repeat(4, 150px);
 
 	gap: 20px;
 	padding: 2rem;
 	justify-content: center;
-}
-.card {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	aspect-ratio: 2 / 3;
-	padding: 1rem 0.5rem;
-	box-shadow: 1px -3px 14px 8px rgba(0, 0, 0, 0.5);
-	border-radius: 10px;
-	border: 5px solid #4e280c;
-	transition: all 0.3s ease;
-}
-
-.card_flipped,
-.card_flipped-letter {
-	background-image: url('/public/paper.jpg');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-}
-#game-board li img,
-#game-board li div {
-	border: 2px solid #4e280c;
-	padding: 0.5rem;
-	box-shadow: inset 1px -3px 14px 8px rgba(0, 0, 0, 0.5);
-	height: 70%;
-	object-fit: cover;
-	background: transparent;
-	border-radius: 10px;
-}
-.card_flipped-letter h3 {
-	font-family: 'helvetica', sans-serif;
-	font-size: 10rem;
-	color: #301616;
-}
-.card_flipped-letter div {
-	width: 90%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.card_not-flipped {
-	background-image: url('./public/cards/back-coin.png');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-}
-.card_not-flipped:hover {
-	transform: translateY(-10px);
-	box-shadow: 15px 20px 14px 3px rgba(0, 0, 0, 0.8);
 }
