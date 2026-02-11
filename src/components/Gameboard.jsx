@@ -6,8 +6,8 @@ import { useState } from 'react';
 
 export default function Gameboard() {
 	const [deck, setDeck] = useState(() => generateBoard(pairsPool, 6));
-
 	const [boardLocked, setBoardLocked] = useState(false);
+	const isGameWon = deck.every((card) => card.isMatched);
 
 	return (
 		<section id='game-board'>
@@ -58,13 +58,7 @@ export default function Gameboard() {
 					'isFlipped',
 					false,
 				);
-				// setDeck((deck) =>
-				// 	deck.map((card) =>
-				// 		card.id === firstCard.id || card.id === secondCard.id
-				// 			? { ...card, isFlipped: false }
-				// 			: card,
-				// 	),
-				// );
+
 				setBoardLocked(false);
 			}, 1000);
 		}

@@ -1,12 +1,13 @@
 import './Card.css';
 
 export default function Card({ card, onFlip, disabled }) {
-	const { type, isFlipped, path, content } = card;
+	const { type, isFlipped, path, content, isMatched } = card;
 	const cardStatus = isFlipped ? 'flipped' : 'covered';
 	const cardBack = '/cards/back-coin.png';
+	const pairStatus = isMatched ? 'matched' : 'not-matched';
 
 	return (
-		<li className='card-wrapper'>
+		<li className={`card-wrapper ${pairStatus}`}>
 			<button
 				type='button'
 				className={`card ${cardStatus}`}
